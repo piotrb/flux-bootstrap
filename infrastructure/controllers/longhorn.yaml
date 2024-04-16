@@ -30,5 +30,13 @@ spec:
         namespace: longhorn-system
       interval: 12h
   values:
+    # persistence:
+    #   defaultClassReplicaCount: 1
     csi:
       kubeletRootDir: /var/lib/rancher/k3s
+      attacherReplicaCount: 1
+      provisionerReplicaCount: 1
+      resizerReplicaCount: 1
+      snapshotterReplicaCount: 1
+    longhornUI:
+      replicas: 1
