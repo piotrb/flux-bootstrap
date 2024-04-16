@@ -27,7 +27,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: . 
+      chart: ./chart
       sourceRef:
         kind: GitRepository
         name: k8s-ingress-to-avahi
