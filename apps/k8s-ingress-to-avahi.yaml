@@ -35,3 +35,5 @@ spec:
 #       interval: 1h
 #       reconcileStrategy: Revision
 #   values: {}
+#   timeout: 60s
+
