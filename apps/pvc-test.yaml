@@ -1,13 +1,30 @@
+# ---
+# apiVersion: source.toolkit.fluxcd.io/v1beta2
+# kind: HelmChart
+# metadata:
+#   name: pvc-test
+#   namespace: flux-system
+# spec:
+#   interval: 5m0s
+#   chart: ./apps/pvc-test
+#   reconcileStrategy: Revision
+#   sourceRef:
+#     kind: GitRepository
+#     name: flux-system
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmChart
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
 metadata:
   name: pvc-test
-  namespace: flux-system
+  namespace: default
 spec:
-  interval: 5m0s
-  chart: ./apps/pvc-test
-  reconcileStrategy: Revision
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
+  interval: 5m
+  chart:
+    spec:
+      chart: ./apps/pvc-test
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+        namespace: flux-system
+      interval: 1m
+  values: {}
