@@ -18,7 +18,7 @@ metadata:
   name: pvc-test
   namespace: default
 spec:
-  interval: 5m
+  interval: 15s # Interval at which to reconcile the Helm release.
   chart:
     spec:
       chart: ./apps/pvc-test
@@ -26,5 +26,7 @@ spec:
         kind: GitRepository
         name: flux-system
         namespace: flux-system
-      interval: 1m
+      interval: 15s # Interval at which to check the v1.Source for updates. Defaults to ‘HelmReleaseSpec.Interval’.
+      reconcileStrategy: Revision
   values: {}
+  releaseName: pvc-test
