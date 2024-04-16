@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmChart
 metadata:
   name: pvc-test
-  namespace: default
+  namespace: flux-system
 spec:
   interval: 5m0s
   chart: ./apps/pvc-test
