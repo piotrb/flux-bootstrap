@@ -18,22 +18,22 @@ spec:
   timeout: 60s
   url: ssh://git@github.com/piotrb/k8s-ingress-to-avahi.git
 ---
-# apiVersion: helm.toolkit.fluxcd.io/v2beta2
-# kind: HelmRelease
-# metadata:
-#   name: ingress-to-avahi
-#   namespace: ingress-to-avahi
-# spec:
-#   interval: 30m
-#   chart:
-#     spec:
-#       chart: . 
-#       sourceRef:
-#         kind: GitRepository
-#         name: k8s-ingress-to-avahi
-#         namespace: ingress-to-avahi
-#       interval: 1h
-#       reconcileStrategy: Revision
-#   values: {}
-#   timeout: 60s
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: ingress-to-avahi
+  namespace: ingress-to-avahi
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: . 
+      sourceRef:
+        kind: GitRepository
+        name: k8s-ingress-to-avahi
+        namespace: ingress-to-avahi
+      interval: 1h
+      reconcileStrategy: Revision
+  values: {}
+  timeout: 60s
 
