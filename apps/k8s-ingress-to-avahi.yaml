@@ -30,7 +30,7 @@ spec:
       chart: . 
       sourceRef:
         kind: GitRepository
-        name: ingress-to-avahi
+        name: k8s-ingress-to-avahi
         namespace: ingress-to-avahi
       interval: 1h
   values: {}
