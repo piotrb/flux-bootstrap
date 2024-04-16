@@ -17,34 +17,20 @@ spec:
     name: k8s-ingress-to-avahi
   timeout: 60s
   url: ssh://git@github.com/piotrb/k8s-ingress-to-avahi.git
-# ---
-# apiVersion: helm.toolkit.fluxcd.io/v2beta2
-# kind: HelmRelease
-# metadata:
-#   name: longhorn
-#   namespace: longhorn-system
-# spec:
-#   interval: 30m
-#   chart:
-#     spec:
-#       chart: longhorn 
-#       version: "1.6.1"
-#       sourceRef:
-#         kind: HelmRepository
-#         name: longhorn
-#         namespace: longhorn-system
-#       interval: 12h
-#   values:
-#     # persistence:
-#     #   defaultClassReplicaCount: 1
-#     ingress:
-#       enabled: true
-#       host: longhorn-kpi.local
-#     csi:
-#       kubeletRootDir: /var/lib/rancher/k3s
-#       attacherReplicaCount: 1
-#       provisionerReplicaCount: 1
-#       resizerReplicaCount: 1
-#       snapshotterReplicaCount: 1
-#     longhornUI:
-#       replicas: 1
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: ingress-to-avahi
+  namespace: ingress-to-avahi
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: . 
+      sourceRef:
+        kind: GitRepository
+        name: ingress-to-avahi
+        namespace: ingress-to-avahi
+      interval: 1h
+  values: {}
