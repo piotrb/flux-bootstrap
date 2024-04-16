@@ -29,4 +29,6 @@ spec:
         name: longhorn
         namespace: longhorn-system
       interval: 12h
-  values: {}
+  values:
+    csi:
+      kubeletRootDir: /var/lib/rancher/k3s
